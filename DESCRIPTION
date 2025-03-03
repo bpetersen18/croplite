@@ -1,18 +1,19 @@
 Package: croplite
-Type: Package
+Type: A very simple crop model.
 Title: What the Package Does (Title Case)
-Version: 0.1.0
+Version: 0.0.0.9000
 Authors@R: c(
     person(
-      "Jane", "Doe",
-      email = "jane@example.com",
+      "Bryan", "Petersen",
+      email = "bryan20@iastate.edu",
       role = c("aut", "cre")
     )
   )
-Description: More about what it does (maybe more than one line).
-    Continuation lines should be indented.
+Description: 
+    Package for calculate the potential yield for a location given the daily weather and solar radiation.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/bpetersen18/croplite
 BugReports: https://github.com/bpetersen18/croplite/issues
+RoxygenNote: 7.3.2
