@@ -1,6 +1,6 @@
 Package: croplite
-Type: A very simple crop model.
-Title: What the Package Does (Title Case)
+Type: Package
+Title: A very simple crop model
 Version: 0.0.0.9000
 Authors@R: c(
     person(
@@ -17,3 +17,6 @@ LazyData: true
 URL: https://github.com/bpetersen18/croplite
 BugReports: https://github.com/bpetersen18/croplite/issues
 RoxygenNote: 7.3.2
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
