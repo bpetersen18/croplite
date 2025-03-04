@@ -17,6 +17,7 @@ LazyData: true
 URL: https://github.com/bpetersen18/croplite
 BugReports: https://github.com/bpetersen18/croplite/issues
 RoxygenNote: 7.3.2
+Roxygen: list(markdown = TRUE)
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
