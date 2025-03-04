@@ -80,17 +80,24 @@ calc_growth_rate <- function(lai, par, rue = 1.91){
   return(growth_rate)
 }
 
-model_growth <- function(date, par, tmin, tmax){
+model_yield_potential <- function(date, par, tmin, tmax, params = list(x = 0.006,
+                                                              max_lai = 5,
+                                                              k = 0.68,
+                                                              tbase = 6,
+                                                              t_threshold = -2,
+                                                              spring_months = 1:5,
+                                                              fall_months = 8:12,
+                                                              rue = 1.91)){
 
-  start_gs <- calc_start_gs(date, tmin)
-  end_gs <- calc_end_gs(date, tmin)
+  start_gs <- calc_start_gs(date, tmin, params$t_threshold, params$spring_months)
+  end_gs <- calc_end_gs(date, tmin, params$t_threshold, params$fall_months)
 
   growing_season <- data.frame(date = date, tmin = tmin, tmax = tmax, par = par) %>%
     dplyr::filter(date >= start_gs & date <= end_gs) %>%
-    dplyr::mutate(gdd = calc_gdd(tmax, tmin),
+    dplyr::mutate(gdd = calc_gdd(tmax, tmin, params$tbase),
            accumulated_gdd = cumsum(gdd),
-           lai = calc_lai(accumulated_gdd),
-           growth_rate = calc_growth_rate(lai, par)) %>%
+           lai = calc_lai(accumulated_gdd, params$x, params$max_lai),
+           growth_rate = calc_growth_rate(lai, par, params$rue)) %>%
     dplyr::select(date, gdd, accumulated_gdd, lai, growth_rate)
 
   return(growing_season)

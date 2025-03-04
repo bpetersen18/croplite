@@ -79,7 +79,7 @@ test_that("Can model crop growth given a date, daily par, daily minimum temperat
     par = rep(5, 366)
   )
 
-  peak_biomass <- round(sum(model_growth(daily_weather$date, daily_weather$par, daily_weather$tmin, daily_weather$tmax)$growth_rate), digits = 1)
+  peak_biomass <- round(sum(model_yield_potential(daily_weather$date, daily_weather$par, daily_weather$tmin, daily_weather$tmax)$growth_rate), digits = 1)
 
   expected_biomass <- 1556.4
 
